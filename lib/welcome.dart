@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:noodley/order.dart';
 
 
 class WelcomePage extends StatelessWidget {
@@ -9,7 +10,7 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
         color: Color.fromARGB(0, 80, 86, 87),
@@ -20,9 +21,7 @@ class WelcomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 30.0),
             child: Image.asset(
-              'assets/images/welcome_udon.png', 
-              // height: size.height * 0.7,
-              
+              'assets/images/welcome_udon.png',         
             ),
           ),
 
@@ -55,22 +54,30 @@ class WelcomePage extends StatelessWidget {
           
           SizedBox(height: 30.0),
 
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 25.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              color: Colors.green[500],
-            ),
-            // color: Colors.green[600],
-            child: Text(
-              'Order Now',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OrderPage()),
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 25.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.green[500],
+              ),
+              // color: Colors.green[600],
+              child: Text(
+                'Order Now',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
